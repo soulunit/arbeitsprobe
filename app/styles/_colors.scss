@@ -1,0 +1,16 @@
+$base-color: #eee;
+
+$font-color: darken($base-color, 32%);
+
+$gist-bg: darken($base-color, 2%);;
+$gist-line-numbers-bg: darken($base-color, 8%);
+$gist-line-numbers-color: darken($base-color, 32%);
+
+$main-bg-color: $base-color;
+
+$owl-bg: darken($base-color, 2%);
+$owl-button-color: darken($base-color, 32%);
+$owl-navi-bg: darken($base-color, 4%);
+
+$primary-color: #1abc9c;
+$secondary-color: #34495e;

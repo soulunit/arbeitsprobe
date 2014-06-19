@@ -1,0 +1,99 @@
+$h1: 45px;
+$h2: 30px;
+$h3: 24px;
+$h4: 20px;
+$h5: 16px;
+$h6: 13px;
+
+$base-font-size: 20px;
+$base-line-height: 32px;
+$default-rhythm-border-style: solid;
+$relative-font-sizing: true;
+$round-to-nearest-half-line: false;
+$min-line-padding: 2px;
+$font-unit: if($relative-font-sizing, 1em, $base-font-size);
+
+$font-mono: 'Source Code Pro', monospace;
+$font-sans: 'Source Sans Pro', sans-serif;
+
+$gist-font-size: 16px;
+
+$blockquote-font-size: 20px;
+$p-font-size: 20px;
+$a-font-size: 20px;
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+
+h1 {
+  @include adjust-font-size-to($h1);
+}
+
+h2 {
+  @include adjust-font-size-to($h2);
+}
+
+h3 {
+  @include adjust-font-size-to($h3);
+}
+
+h4 {
+  @include adjust-font-size-to($h4);
+}
+
+h5 {
+  @include adjust-font-size-to($h5);
+}
+
+h6 {
+  @include adjust-font-size-to($h6);
+}
+
+p {
+  @include adjust-font-size-to($p-font-size - 6);
+  text-align: justify;
+  @include susy-breakpoint($medium...) {
+    @include adjust-font-size-to($p-font-size);
+  }
+}
+
+a {
+  @include adjust-font-size-to($a-font-size);
+  color: $primary-color;
+  opacity: .6;
+  text-decoration: none;
+  transition: opacity .1s ease-out;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+blockquote {
+  @include adjust-font-size-to($blockquote-font-size);
+  border-left: 4px solid $primary-color;
+  font-style: italic;
+  font-weight: 300;
+  padding: 0 16px;
+  > p {
+    margin: 0;
+    &:before {
+      content: '\201E';
+    }
+    &:after {
+      content: '\201C';
+    }
+  }
+  > .bq-footer {
+    line-height: rhythm(1);
+    text-align: right;
+    &:before {
+      content: '\2014 \00A0';
+    }
+  }
+}
+
+blockquote:before,
+blockquote:after {
+  content: '';
+}

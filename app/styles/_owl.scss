@@ -1,0 +1,112 @@
+@import '_owl/owl.carousel';
+@import '_owl/owl.transitions';
+
+$owl-button-small: 16px;
+$owl-arrow-small: 16px;
+$owl-button-medium: 16px;
+$owl-arrow-medium: 32px;
+
+.carousel-full > .item > img,
+.carousel-small > .item > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.owl-carousel {
+  background-color: $owl-bg;
+}
+
+.owl-theme .owl-controls {
+  display: block;
+  background-color: $owl-navi-bg;
+  height: rhythm(1);
+  > .owl-pagination {
+    display: inline-block;
+    height: rhythm(1);
+    > .owl-page {
+      display: inline-block;
+      > span {
+        line-height: rhythm(1);
+        display: block;
+        width: $owl-button-small;
+        height: $owl-button-small;
+        margin: 8px 0 0 16px;
+        opacity: .2;
+        transition: opacity .2s ease-out;
+        background-color: $owl-button-color;
+        border-radius: $owl-button-small / 2;
+      }
+    }
+  }
+  >.owl-buttons {
+    display: inline-block;
+    height: rhythm(1);
+    float: right;
+    > div {
+      display: inline-block;
+      margin: 8px 16px 0 0;
+      width: $owl-arrow-small;
+      height: $owl-arrow-small;
+      opacity: .1;
+      transition: opacity .2s ease-out;
+      &.owl-prev {
+        transform: translateZ(0);
+        background-image: url(../images/chevron-left-2x.png);
+        &:hover {
+          opacity: .4;
+        }
+      }
+      &.owl-next {
+        transform: translateZ(0);
+        background-image: url(../images/chevron-right-2x.png);
+        &:hover {
+          opacity: .4;
+        }
+      }
+    }
+  }
+}
+
+@include susy-breakpoint($footer-medium...) {
+  .owl-theme .owl-controls {
+    height: rhythm(2);
+    > .owl-pagination {
+      height: rhythm(2);
+      > .owl-page {
+        padding: 0 8px;
+        > span {
+          line-height: $owl-button-medium;
+          margin: 24px 0 0 32px;
+        }
+      }
+    }
+    >.owl-buttons {
+      height: rhythm(2);
+      > div {
+        margin: 16px 32px 0 0;
+        width: $owl-arrow-medium;
+        height: $owl-arrow-medium;
+        &.owl-prev {
+          background-image: url(../images/chevron-left-4x.png);
+        }
+        &.owl-next {
+          background-image: url(../images/chevron-right-4x.png);
+        }
+      }
+    }
+  }
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page span:hover {
+  opacity: .8;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+  zoom: 1;
+}
+
+.owl-theme .owl-controls .owl-page {
+  zoom: 1;
+}
